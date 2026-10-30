@@ -41,6 +41,9 @@ const xoConfig = [
 			'@typescript-eslint/strict-void-return': 'off',
 			'new-cap': 'off',
 			'no-promise-executor-return': 'off',
+			// Ink's accessibility API uses `aria-role` and `aria-state` props on
+			// Box/Text; they are not DOM attributes, so the DOM ARIA check misfires.
+			'jsx-a11y-x/aria-props': 'off',
 		},
 	},
 	{
@@ -60,6 +63,9 @@ const xoConfig = [
 			'@typescript-eslint/no-unsafe-member-access': 'off',
 			'@typescript-eslint/no-unsafe-return': 'off',
 			'@typescript-eslint/no-unsafe-argument': 'off',
+			// The libraries test with vitest, where importing shared helpers from
+			// other test-directory files is normal; this rule targets node:test.
+			'node-test/no-import-test-files': 'off',
 		},
 	},
 ];
