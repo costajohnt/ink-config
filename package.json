@@ -1,0 +1,23 @@
+{
+	"name": "@costajohnt/ink-config",
+	"version": "1.0.0",
+	"description": "Shared tsconfig, xo config, and CI workflow for costajohnt's Ink component libraries",
+	"license": "MIT",
+	"repository": "costajohnt/ink-config",
+	"type": "module",
+	"exports": {
+		"./xo": "./xo.js",
+		"./tsconfig.json": "./tsconfig.json"
+	},
+	"files": [
+		"xo.js",
+		"tsconfig.json"
+	],
+	"dependencies": {
+		"@sindresorhus/tsconfig": "^8.1.0",
+		"eslint-config-xo-react": "^0.32.0"
+	},
+	"peerDependencies": {
+		"xo": ">=5"
+	}
+}
