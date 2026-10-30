@@ -2,6 +2,13 @@
 	"extends": "@sindresorhus/tsconfig",
 	"compilerOptions": {
 		"outDir": "${configDir}/dist",
+		// Node.js 22: ES2024 plus the Set methods (union, intersection, ...).
+		"lib": [
+			"DOM",
+			"DOM.Iterable",
+			"ES2024",
+			"ESNext.Collection"
+		],
 		"sourceMap": true,
 		"jsx": "react-jsx"
 	},

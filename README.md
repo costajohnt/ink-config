@@ -48,6 +48,6 @@ jobs:
     uses: costajohnt/ink-config/.github/workflows/ci.yml@main
 ```
 
-Lints on Node 22 and tests against ink 6, 7, and 8. A library needs `build`, `typecheck`, `lint`, and `test` scripts.
+Lints on Node 22 and tests against ink 6, 7, and 8 on Node 22 and 24. The libraries support Node.js 22 and later. A library needs `build`, `typecheck`, `lint`, and `test` scripts.
 
 Changes here apply to every library's CI on its next run. tsconfig and xo changes reach a library when it runs `npm update @costajohnt/ink-config`.

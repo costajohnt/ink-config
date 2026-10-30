@@ -28,14 +28,14 @@ jobs:
       fail-fast: false
       matrix:
         # Each leg installs its ink major explicitly so the advertised `ink >=6`
-        # peer range is tested at every major. ink 7 and 8 require Node >= 22.
+        # peer range is tested at every major, on the Node 22 floor and Node 24.
         # React is the lowest minor each ink line accepts: ink 6.8 and 7 use
         # react-reconciler 0.33 (react ^19.2), ink 8 requires react >= 19.3.
         include:
-          - node-version: 20
+          - node-version: 22
             ink-version: 6
             react-version: '19.2'
-          - node-version: 22
+          - node-version: 24
             ink-version: 6
             react-version: '19.2'
           - node-version: 22
