@@ -4,17 +4,20 @@ name: CI
 #
 #   jobs:
 #     ci:
-#       uses: costajohnt/ink-config/.github/workflows/ci.yml@main
+#       uses: costajohnt/ink-config/.github/workflows/ci.yml@v1
 
 on:
   workflow_call:
+
+permissions:
+  contents: read
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           # xo 5 (ESLint 10) requires Node >= 22.
           node-version: 22
@@ -27,8 +30,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Each leg installs its ink major explicitly so the advertised `ink >=6`
-        # peer range is tested at every major, on the Node 22 floor and Node 24.
+        # Full grid: every ink major the advertised `ink >=6` peer range covers,
+        # on the Node 22 floor and Node 24.
         # React is the lowest minor each ink line accepts: ink 6.8 and 7 use
         # react-reconciler 0.33 (react ^19.2), ink 8 requires react >= 19.3.
         include:
@@ -42,11 +45,17 @@ jobs:
             ink-version: 7
             react-version: '19.2'
           - node-version: 24
+            ink-version: 7
+            react-version: '19.2'
+          - node-version: 22
+            ink-version: 8
+            react-version: '19.3'
+          - node-version: 24
             ink-version: 8
             react-version: '19.3'
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
