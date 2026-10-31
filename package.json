@@ -28,7 +28,7 @@
 		"config"
 	],
 	"dependencies": {
-		"@sindresorhus/tsconfig": "^8.1.0",
+		"@sindresorhus/tsconfig": "^9.0.0",
 		"eslint-config-xo-react": "^0.32.0"
 	},
 	"devDependencies": {
