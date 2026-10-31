@@ -32,7 +32,7 @@
 		"eslint-config-xo-react": "^0.32.0"
 	},
 	"devDependencies": {
-		"typescript": "^5.9.3",
+		"typescript": "^7.0.2",
 		"xo": "^5.0.1"
 	},
 	"peerDependencies": {
