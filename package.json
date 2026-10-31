@@ -9,15 +9,34 @@
 		"./xo": "./xo.js",
 		"./tsconfig.json": "./tsconfig.json"
 	},
+	"sideEffects": false,
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"lint": "xo",
+		"test": "tsc -p test/fixture --noEmit"
+	},
 	"files": [
 		"xo.js",
 		"tsconfig.json"
+	],
+	"keywords": [
+		"ink",
+		"xo",
+		"tsconfig",
+		"config"
 	],
 	"dependencies": {
 		"@sindresorhus/tsconfig": "^8.1.0",
 		"eslint-config-xo-react": "^0.32.0"
 	},
+	"devDependencies": {
+		"typescript": "^5.9.3",
+		"xo": "^5.0.1"
+	},
 	"peerDependencies": {
+		"typescript": ">=5.9",
 		"xo": ">=5"
 	}
 }
