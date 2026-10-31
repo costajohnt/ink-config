@@ -1,0 +1,31 @@
+name: Check
+
+# Validates this repo before a change reaches the libraries. The reusable
+# workflow consumers call is ci.yml; this one only runs here.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - name: actionlint
+        run: |
+          curl -fsSLo actionlint.tar.gz https://github.com/rhysd/actionlint/releases/download/v1.7.11/actionlint_1.7.11_linux_amd64.tar.gz
+          echo "900919a84f2229bac68ca9cd4103ea297abc35e9689ebb842c6e34a3d1b01b0a  actionlint.tar.gz" | sha256sum -c
+          tar -xzf actionlint.tar.gz actionlint
+          ./actionlint -color
