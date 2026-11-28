@@ -29,7 +29,7 @@
 	],
 	"dependencies": {
 		"@sindresorhus/tsconfig": "^8.1.0",
-		"eslint-config-xo-react": "^0.32.0"
+		"eslint-config-xo-react": "^0.34.0"
 	},
 	"devDependencies": {
 		"typescript": "^5.9.3",
